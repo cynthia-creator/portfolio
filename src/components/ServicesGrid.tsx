@@ -30,24 +30,24 @@ type Stage = {
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Discover',
+    body: 'We talk through your workload and find what to hand off first.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Intro call', 'Task audit', 'Tools check', 'Priorities'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Set up',
+    body: 'We talk through your workload and find what to hand off first.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Onboarding', 'Templates', 'Automations'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Run',
+    body: 'You get time back, with regular updates and a site that works for you.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Weekly updates', 'Support', 'Improvements'],
   },
 ]
 
@@ -76,51 +76,8 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
 
-const SERVICES: Service[] = [
-  {
-    index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
-  },
-  {
-    index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
-  },
-  {
-    index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
-  },
-  {
-    index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
-  },
-  {
-    index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
-  },
-]
+
 
 /** The tool marks, stacked horizontally on white tiles (same as Projects). */
 function Marks({ logos }: { logos: string[] }) {
@@ -135,6 +92,48 @@ function Marks({ logos }: { logos: string[] }) {
   )
 }
 
+const SERVICES: Service[] = [
+  {
+    index: '01',
+    title: 'Website design and development',
+    description: 'Fast, clean websites that look good and are easy to update.',
+    chip: 'Web',
+    logos: [GHL, REACT, TAILWIND],
+    bullets: ['Mobile-friendly design', 'Built to load fast', 'Easy to edit later'],
+  },
+  {
+    index: '02',
+    title: 'Automations',
+    description: 'Repeat tasks handled for you, so nothing slips through.',
+    chip: 'Automation',
+    logos: [GHL, N8N, OPENAI],
+    bullets: ['Forms and follow-ups', 'Fewer manual steps', 'Saves hours each week'],
+  },
+  {
+    index: '03',
+    title: 'Virtual assistant support',
+    description: 'Day-to-day admin handled so you can focus on growth.',
+    chip: 'Admin',
+    logos: [GHL, GWS, SLACK],
+    bullets: ['Inbox and calendar care', 'Customer support replies', 'Organised documents'],
+  },
+  {
+    index: '04',
+    title: 'Landing pages and hosting',
+    description: 'A focused page for a launch, offer or booking, live quickly.',
+    chip: 'Launch',
+    logos: [REACT, VITE, CLOUDFLARE],
+    bullets: ['Clear call to action', 'Secure, fast hosting', 'Your own domain'],
+  },
+  {
+    index: '05',
+    title: 'Custom tools',
+    description: 'Small AI-assisted tools built around how you work.',
+    chip: 'Custom',
+    logos: [CLAUDE_CODE, EXPO, CHROME],
+    bullets: ['Built for your workflow', 'Practical, not flashy', 'Support after launch'],
+  },
+]
 /* ---------- The page ---------- */
 
 export default function ServicesGrid() {
@@ -143,7 +142,7 @@ export default function ServicesGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Services</span>
         <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
+         Less admin. Better websites .
         </h1>
         <p className="pgrid__lede">
           PLACEHOLDER - tell me what to put here: one line on what you offer.
