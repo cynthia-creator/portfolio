@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { ArrowUpRight, MapPin } from '@/components/slab'
+import { MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 /**
@@ -16,12 +16,12 @@ import { profile } from '@/data/profile'
 
 const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
 const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
+//const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
 const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
 const CODEX = { src: '/icons/ai/codex.svg', name: 'Codex' }
-const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
-const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
-const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
+//const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
+//const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
+//const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
 const NAMECHEAP = { src: '/icons/ai/namecheap.svg', name: 'Namecheap' }
 const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Cloudflare' }
 const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
@@ -38,26 +38,25 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Your role 1',
-    marks: [N8N, ZAPIER, DOCKER],
+    title: 'Admin and inbox support',
+    marks: [GWS, SLACK, FIREFLIES],
   },
   {
     index: '02',
-    title: 'Your role 2',
-    marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
+    title: 'Automations',
+    marks: [N8N, ZAPIER],
   },
   {
     index: '03',
-    title: 'Your role 3',
-    marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
+    title: 'Websites and hosting',
+    marks: [CLAUDE, NAMECHEAP, CLOUDFLARE, GITHUB],
   },
   {
     index: '04',
-    title: 'Your role 4',
-    marks: [GWS, SLACK, FIREFLIES],
+    title: 'AI-assisted workflows',
+    marks: [CLAUDE, CODEX],
   },
 ]
-
 export default function AboutGrid() {
   return (
     <section className="pgrid agrid" aria-labelledby="about-title">
@@ -67,24 +66,20 @@ export default function AboutGrid() {
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
+          A remote virtual assistant and web developer based in Cape Town.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
+            I take the admin off your plate and build the website you need.
+            <span> So you can get back to running your business.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
-            </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
+            I work remotely with solo founders and small teams, handling the day-to-day tasks
+            that eat into your time and building clean, fast websites that are easy to update.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -109,45 +104,23 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
           <div className="agrid__bar">
-            <span className="agrid__cell">
-              <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
-              </span>
-            </span>
-
             <span className="agrid__cell">
               <span className="agrid__cell-mark">
                 <MapPin size={16} weight="fill" aria-hidden="true" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
+                <span className="agrid__cell-meta">GMT+2 · working remotely</span>
               </span>
             </span>
-
-            <a className="agrid__cell agrid__cell--wide" href="#">
-              <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
-              </span>
-              <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
-              </span>
-              <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
-            </a>
           </div>
         </div>
 
         <div className="agrid__portrait">
           <img
-            src="/avatar.svg"
-            alt="Portrait placeholder"
+            src={profile.avatarSrc}
+            alt={`Portrait of ${profile.name}`}
             loading="eager"
             decoding="async"
             width={400}

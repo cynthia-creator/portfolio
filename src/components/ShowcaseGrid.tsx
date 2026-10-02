@@ -15,28 +15,11 @@ export default function ShowcaseGrid() {
         <div className="ktools__head-copy">
           <span className="pgrid__eyebrow">Showcase</span>
           <h1 className="pgrid__title" id="showcase-title">
-            Your flagship product, and the people using it.
+            My flagship build, and the people it helps.
           </h1>
           <p className="pgrid__lede">
-            PLACEHOLDER - tell me what to put here: one line on what this product is and why a visitor should look at it.
+            A closer look at the work I'm proudest of, and what clients say about working with me.
           </p>
-        </div>
-
-        {/* Badge slot. Fixed 320x72 box so it sits on the baseline of the
-            lede. Swap the image and text for a real badge, award or launch
-            listing, and point the link at it. */}
-        <div className="ktools__vote">
-          <p className="ktools__vote-label">
-            Featured on
-            <span aria-hidden="true" className="ktools__vote-dot" />
-            <span className="ktools__vote-ask">Placeholder</span>
-          </p>
-          <a className="ktools__vote-frame ktools__vote-card" href="#">
-            <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
-            <span className="ktools__vote-text">
-              PLACEHOLDER - a badge, award or launch link
-            </span>
-          </a>
         </div>
       </header>
 
