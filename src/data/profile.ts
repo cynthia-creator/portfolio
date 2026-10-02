@@ -49,22 +49,22 @@ export const profile: Profile = {
   name: 'Cynthia Kamuzembe',
   firstName: 'Cynthia',
   handle: '@DigitalByCyn',
-  role: 'PLACEHOLDER - Virtual Assistant | Web Developer ',
+  role: 'Virtual Assistant | Web Developer ',
   avatarSrc: '/cynthia.png',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
+  verifiedLabel: 'Verified Virtual Assistant | Web developer',
   email: 'kamuzembecynthia8@gmail.com',
-  location: 'PLACEHOLDER - Capetown, South Africa',
+  location: 'Capetown, South Africa',
   // Pick any icon from https://phosphoricons.com and import it above.
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER', Icon: Briefcase },
-    { value: '#000', label: 'PLACEHOLDER', Icon: SealCheck },
-    { value: 'GMT+0', label: 'PLACEHOLDER', Icon: Clock },
+    { value: '4 yrs', label: 'Web developer', Icon: Briefcase },
+    { value: '#000', label: 'Remote  ', Icon: SealCheck },
+    { value: 'GMT+2', label: 'Timezone(South Africa is GMT+2)', Icon: Clock },
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
   displayName: { line1: 'Less admin.', line2: 'Better Websites.' },
   hero: {
-    body: 'Remote VA and Web developer supporting solo founders and small teams world wide.',
+    body: 'Remote VA and Web developer supporting solo founders and small teams worldwide.',
     portraitSrc: '/cynthia.png',
     portraitAlt: 'Portrait placeholder',
   },
