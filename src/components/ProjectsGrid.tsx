@@ -33,6 +33,24 @@ const FIGMA = '/icons/ai/figma.svg'
 
 const PROJECTS: Project[] = [
   {
+    id: 'trakmama',
+    title: 'Trakmama',
+    desc: 'Finished. A mobile-friendly web app for expectant mothers and new parents to track health, get reminders and book appointments.',
+    logos: [VERCEL, TAILWIND],
+    details: [
+      'A mobile-friendly web app for expectant mothers and new parents to track maternal and child health indicators.',
+      'Daily reminders, healthy tips and motivation.',
+      'Appointment scheduling with a calendar.',
+      'Built with React, Vite, Tailwind CSS and React Router, and deployed on Vercel.',
+      'General information only. It is not a substitute for medical advice.',
+    ],
+    links: [
+      { label: 'View live app', href: 'https://trakmama-project-pied.vercel.app/' },
+      { label: 'View code on GitHub', href: 'https://github.com/cynthia-creator/trakmama-project' },
+    ],
+    wide: true,
+  },
+  {
     id: 'omnispark',
     title: 'OmniSpark Media',
     desc: 'In progress. The website for my own web development and digital marketing business.',
@@ -43,7 +61,6 @@ const PROJECTS: Project[] = [
       'Still in development: content and design are being finalised.',
     ],
     links: [{ label: 'View live site', href: 'https://omnisparkmedia-ew89.vercel.app/' }],
-    wide: true,
   },
   {
     id: 'weather',
@@ -200,10 +217,10 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Things I&apos;m building.
+          Things I&apos;ve built.
         </h1>
-        <p className="pgrid__lede">
-          Two projects in progress, and the tools I work with. Open a card to see more.
+               <p className="pgrid__lede">
+          One finished project, two in progress, and the tools I work with. Open a card to see more.
         </p>
       </header>
 

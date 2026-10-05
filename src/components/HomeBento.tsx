@@ -28,9 +28,11 @@ import { profile } from '@/data/profile'
 type Item = { Icon: typeof FolderOpen; title: string; note: string }
 
 const PROJECT_ITEMS: Item[] = [
+  { Icon: Globe, title: 'Trakmama', note: 'Pregnancy tracker web app · Finished' },
   { Icon: Globe, title: 'OmniSpark Media', note: 'My business website · In progress' },
   { Icon: Gear, title: 'Weather App', note: 'Practice project · In progress' },
 ]
+
 
 const OFFERS: Item[] = [
   { Icon: Globe, title: 'Websites', note: 'Responsive, fast, mobile-friendly' },
@@ -105,14 +107,7 @@ export default function HomeBento() {
 
   return (
     <nav className="bento" aria-label="Explore the portfolio">
-      <Link to="/projects" className="bento__card bento__card--projects">
-        <CardHead
-          Icon={FolderOpen}
-          title="Projects"
-          desc="Two projects in progress: my business website and a weather app."
-        />
-        <ItemList items={PROJECT_ITEMS} />
-      </Link>
+      
 
       <Link to="/about" className="bento__card bento__card--about">
         <CardHead
@@ -126,7 +121,14 @@ export default function HomeBento() {
           </span>
         </div>
       </Link>
-
+      <Link to="/projects" className="bento__card bento__card--projects">
+        <CardHead
+          Icon={FolderOpen}
+          title="Projects"
+          desc="A pregnancy tracker app, plus my business website and a weather app in progress."
+        />
+        <ItemList items={PROJECT_ITEMS} />
+      </Link>
       <Link to="/projects" className="bento__card bento__card--ai">
         <CardHead Icon={Robot} title="Skills" desc="What I can help you with." />
         <div className="bento__media bento__chips" aria-hidden="true">
