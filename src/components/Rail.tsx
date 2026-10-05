@@ -6,7 +6,7 @@ import {
   HomeIcon,
   FolderIcon,
   StackIcon,
-  CupIcon,
+  
   StarIcon,
   UserIcon,
   MessageIcon,
