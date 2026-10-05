@@ -17,82 +17,34 @@ export type AppProject = {
 /** @deprecated use AppProject */
 export type MobileApp = AppProject
 
-/**
- * Your apps. Every value is a PLACEHOLDER. Screenshots live in
- * public/placeholders/ - swap in your own (960x514 works well).
- */
-const STATS: AppStat[] = [
-  { value: '0', label: 'Stat one' },
-  { value: '0', label: 'Stat two' },
-  { value: '0', label: 'Stat three' },
-]
-
-const DESC = 'PLACEHOLDER - tell me what to put here: what the app does, who it is for, and where it is published.'
-
-export const mobileApps: MobileApp[] = [
-  {
-    name: 'App Name One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-1.jpg',
-    imagePosition: '50% 30%',
-    accentColor: '#2563EB',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'App Name Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-2.jpg',
-    accentColor: '#7C3AED',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'App Name Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-3.jpg',
-    accentColor: '#16A34A',
-    stats: STATS,
-    badge: 'Badge',
-  },
-]
+/** No mobile apps yet. Kept so other files that import it still work. */
+export const mobileApps: MobileApp[] = []
 
 export const webApps: AppProject[] = [
   {
-    name: 'Web App One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
+    name: 'OmniSpark Media',
+    tagline: 'The website for my own web development and marketing business.',
+    description:
+      'A multi-page business website with services, process, portfolio and contact pages, designed to turn visitors into enquiries. Currently in development.',
+    accentColor: '#2563EB',
+    stats: [
+      { value: 'Next.js', label: 'Built with' },
+      { value: 'Tailwind', label: 'Styling' },
+      { value: 'Live', label: 'Deployed on Vercel' },
+    ],
+    badge: 'In progress',
+  },
+  {
+    name: 'Weather App',
+    tagline: 'A simple weather app with a Celsius and Fahrenheit toggle.',
+    description:
+      'A small weather app showing conditions, humidity and wind speed, built as a practice project. The code is open source on GitHub, and a redesign is planned.',
     accentColor: '#0EA5E9',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    accentColor: '#EF4444',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-3.jpg',
-    accentColor: '#0891B2',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Four',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-4.jpg',
-    accentColor: '#F59E0B',
-    stats: STATS,
-    badge: 'Badge',
+    stats: [
+      { value: '°C / °F', label: 'Unit toggle' },
+      { value: 'Open source', label: 'On GitHub' },
+      { value: 'Practice', label: 'Project type' },
+    ],
+    badge: 'In progress',
   },
 ]
