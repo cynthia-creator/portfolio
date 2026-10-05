@@ -1,13 +1,5 @@
 /**
- * YOUR IDENTITY - start here.
- *
- * Everything that says who you are lives in this file: name, handle, photo,
- * socials, email and the Home headline. Every value below is a PLACEHOLDER.
- * Replace the text, or hand this file to your AI assistant and tell it what
- * to put in each field.
- *
- * Page-specific copy (projects, services, testimonials, FAQs) lives in the
- * other files in src/data/ and at the top of each view component.
+ * Profile data: your name, role, contact details and the facts shown on Home.
  */
 
 import { Briefcase, SealCheck, Clock, type Icon } from '@/components/slab'
@@ -30,7 +22,7 @@ export type Profile = {
   role: string
   /** Square image. An SVG, WebP or PNG with a transparent background looks best. */
   avatarSrc: string
-  /** Tooltip / screen-reader label on the verified tick next to your name. */
+  /** Tooltip / screen-reader label on the tick next to your name. */
   verifiedLabel: string
   email: string
   location: string
@@ -49,28 +41,26 @@ export const profile: Profile = {
   name: 'Cynthia Kamuzembe',
   firstName: 'Cynthia',
   handle: '@DigitalByCyn',
-  role: 'Virtual Assistant | Web Developer ',
+  role: 'Web Developer | Virtual Assistant',
   avatarSrc: '/cynthia.png',
-  verifiedLabel: 'Verified Virtual Assistant | Web developer',
+  verifiedLabel: 'Web Developer and Virtual Assistant',
   email: 'kamuzembecynthia8@gmail.com',
-  location: 'Capetown, South Africa',
+  location: 'Cape Town, South Africa',
   // Pick any icon from https://phosphoricons.com and import it above.
   stats: [
     { value: '4 yrs', label: 'Web developer', Icon: Briefcase },
-    { value: '#000', label: 'Remote  ', Icon: SealCheck },
-    { value: 'GMT+2', label: 'Timezone(South Africa is GMT+2)', Icon: Clock },
+    { value: 'Remote', label: 'Worldwide clients', Icon: SealCheck },
+    { value: 'GMT+2', label: 'South Africa time', Icon: Clock },
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Less admin.', line2: 'Better Websites.' },
+  displayName: { line1: 'Less admin, more focus.', line2: 'Websites that bring leads.' },
   hero: {
-    body: 'Remote VA and Web developer supporting solo founders and small teams worldwide.',
+    body: 'I build fast, mobile-friendly websites and offer virtual assistant support for busy founders and small teams.',
     portraitSrc: '/cynthia.png',
-    portraitAlt: 'Portrait placeholder',
+    portraitAlt: 'Portrait of Cynthia Kamuzembe',
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href:'https://www.linkedin.com/in/cynthiakamuzembe', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/cynthiakamuzembe', iconPath: '/icons/linkedin.svg' },
   ],
 }
