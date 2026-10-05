@@ -1,20 +1,12 @@
 import type { CSSProperties } from 'react'
 import { MagnetStraight, Timer, Trophy, CheckCircle } from '@/components/slab'
 import type { Icon } from '@/components/slab'
-import Autopilot, { TOOLS } from '@/components/Autopilot'
 
 /**
  * ServicesGrid - the Services view on one glass sheet.
  *
- * Three bands, top to bottom: your three-step method (on a dark plate so it
- * is the first thing the eye lands on), the five services as cards that carry
- * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
+ * Two bands: the three-step method on a dark plate, then the four services
+ * as cards that carry the marks of the tools they use.
  */
 
 /* ---------- The method ---------- */
@@ -31,41 +23,36 @@ const STAGES: Stage[] = [
   {
     index: '01',
     label: 'Discover',
-    body: 'We talk through your workload and find what to hand off first.',
+    body: 'You tell me what you need and we agree on what the work involves.',
     Icon: MagnetStraight,
-    chips: ['Intro call', 'Task audit', 'Tools check', 'Priorities'],
+    chips: ['Your goals', 'Scope', 'Timeline'],
   },
   {
     index: '02',
-    label: 'Set up',
-    body: 'We talk through your workload and find what to hand off first.',
+    label: 'Plan',
+    body: 'I send a clear plan, a price and a timeline before any work starts.',
     Icon: Timer,
-    chips: ['Onboarding', 'Templates', 'Automations'],
+    chips: ['Plan', 'Price', 'Agreement'],
   },
   {
     index: '03',
-    label: 'Run',
-    body: 'You get time back, with regular updates and a site that works for you.',
+    label: 'Deliver',
+    body: 'I do the work, share progress along the way and make revisions.',
     Icon: Trophy,
-    chips: ['Weekly updates', 'Support', 'Improvements'],
+    chips: ['Progress updates', 'Revisions', 'Handover'],
   },
 ]
 
 /* ---------- The services ---------- */
 
-// Example tool marks from /public/icons. Swap for the tools you actually use.
-const GHL = '/icons/gohighlevel.png'
+// Logos that exist in public/icons
 const REACT = '/icons/ai/react.svg'
 const TAILWIND = '/icons/ai/tailwindcss.svg'
-const VITE = '/icons/ai/vite.svg'
-const CLOUDFLARE = '/icons/ai/cloudflare.svg'
-const N8N = '/icons/ai/n8n.svg'
-const OPENAI = '/icons/openai.svg'
+const VERCEL = '/icons/ai/vercel.svg'
+const NETLIFY = '/icons/ai/netlify.svg'
 const GWS = '/icons/googleworkspace.svg'
-const SLACK = '/icons/slack.svg'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const EXPO = '/icons/ai/expo.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
+const SLACK = '/icons/ai/slack-color.svg'
+const MAKE = '/icons/ai/make.svg'
 
 type Service = {
   index: string
@@ -76,16 +63,23 @@ type Service = {
   bullets: string[]
 }
 
-
-
-
 /** The tool marks, stacked horizontally on white tiles (same as Projects). */
 function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
       {logos.map((src) => (
         <span key={src} className="bento__logo">
-          <img src={src} alt="" width={22} height={22} decoding="async" />
+          <img
+            src={src}
+            alt=""
+            width={22}
+            height={22}
+            decoding="async"
+            onError={(e) => {
+              const wrapper = e.currentTarget.parentElement
+              if (wrapper) wrapper.style.display = 'none'
+            }}
+          />
         </span>
       ))}
     </span>
@@ -95,45 +89,38 @@ function Marks({ logos }: { logos: string[] }) {
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Website design and development',
-    description: 'Fast, clean websites that look good and are easy to update.',
+    title: 'Websites and hosting',
+    description: 'Responsive websites and landing pages that look good on any screen.',
     chip: 'Web',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: ['Mobile-friendly design', 'Built to load fast', 'Easy to edit later'],
+    logos: [REACT, TAILWIND, VERCEL, NETLIFY],
+    bullets: ['Mobile-friendly design', 'Built with React and Tailwind', 'Deployed on Vercel or Netlify'],
   },
   {
     index: '02',
-    title: 'Automations',
-    description: 'Repeat tasks handled for you, so nothing slips through.',
-    chip: 'Automation',
-    logos: [GHL, N8N, OPENAI],
-    bullets: ['Forms and follow-ups', 'Fewer manual steps', 'Saves hours each week'],
+    title: 'Admin and inbox support',
+    description: 'Entry-level virtual assistant help with everyday admin.',
+    chip: 'Entry-level',
+    logos: [GWS, SLACK],
+    bullets: ['Email and inbox organising', 'Calendar and scheduling', 'Data entry and spreadsheets'],
   },
   {
     index: '03',
-    title: 'Virtual assistant support',
-    description: 'Day-to-day admin handled so you can focus on growth.',
-    chip: 'Admin',
-    logos: [GHL, GWS, SLACK],
-    bullets: ['Inbox and calendar care', 'Customer support replies', 'Organised documents'],
+    title: 'Automations',
+    description: 'Simple workflows that cut repetitive manual tasks.',
+    chip: 'Automation',
+    logos: [MAKE],
+    bullets: ['Connect your apps with Make', 'Custom code where needed', 'Fewer repetitive tasks'],
   },
   {
     index: '04',
-    title: 'Landing pages and hosting',
-    description: 'A focused page for a launch, offer or booking, live quickly.',
-    chip: 'Launch',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: ['Clear call to action', 'Secure, fast hosting', 'Your own domain'],
-  },
-  {
-    index: '05',
-    title: 'Custom tools',
-    description: 'Small AI-assisted tools built around how you work.',
-    chip: 'Custom',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: ['Built for your workflow', 'Practical, not flashy', 'Support after launch'],
+    title: 'AI data annotation',
+    description: 'Careful labelling and review of data for AI training.',
+    chip: 'Annotation',
+    logos: [],
+    bullets: ['Careful labelling and review', 'Follows project guidelines', 'Focus on accuracy'],
   },
 ]
+
 /* ---------- The page ---------- */
 export default function ServicesGrid() {
   return (
@@ -144,23 +131,21 @@ export default function ServicesGrid() {
           Less admin. Better websites.
         </h1>
         <p className="pgrid__lede">
-          Remote admin support and web development for solo founders and small teams.
+          Web development and entry-level admin support for solo founders and small teams.
         </p>
       </header>
 
       <div className="home__glass sgrid__glass">
-        {/* One dark plate, the headline on the left, the three stages wired
-            in order on the right with a signal running them. */}
         <div className="sgrid__method" aria-labelledby="method-title">
           <div className="sgrid__method-copy">
             <span className="sgrid__method-eyebrow">How I work</span>
             <h2 className="sgrid__method-title" id="method-title">
               One. Two. Three.
               <br />
-              <span>Simple, from first call to finished work.</span>
+              <span>Simple, from first message to finished work.</span>
             </h2>
             <p className="sgrid__method-sub">
-              A clear process means no surprises and no chasing.
+              A clear process means no surprises along the way.
             </p>
           </div>
 
@@ -186,7 +171,6 @@ export default function ServicesGrid() {
           </ol>
         </div>
 
-        {/* Five cards, each carrying the marks of what it is built with. */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
             <h2 className="sgrid__offers-title">What I can do for you.</h2>
@@ -198,7 +182,7 @@ export default function ServicesGrid() {
                 <span className="bento__head">
                   <span className="sgrid__service-top">
                     <Marks logos={s.logos} />
-                    <span className="sgrid__service-index" aria-hidden="true">{s.index} / 05</span>
+                    <span className="sgrid__service-index" aria-hidden="true">{s.index} / 04</span>
                   </span>
                   <span className="bento__title">{s.title}</span>
                   <span className="bento__desc">{s.description}</span>
@@ -215,31 +199,6 @@ export default function ServicesGrid() {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* The live workflow. Its caption and the tool chips sit in a header
-            above the window, so the canvas gets the whole glass width. */}
-        <div className="sgrid__flow">
-          <header className="sgrid__flow-head">
-            <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">See an automation in action.</h2>
-              <p className="sgrid__flow-sub">
-                An example of how a new enquiry can be captured, answered and tracked without anyone lifting a finger.
-              </p>
-            </div>
-            <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">
-              {TOOLS.map(({ Icon: ToolIcon, label }) => (
-                <li key={label} className="sgrid__flow-tool">
-                  <ToolIcon size={14} weight="duotone" aria-hidden="true" />
-                  <span>{label}</span>
-                </li>
-              ))}
-            </ul>
-          </header>
-          <div className="sgrid__flow-main">
-            <Autopilot compact maxScale={1.08} />
-          </div>
         </div>
       </div>
     </section>
