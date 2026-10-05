@@ -18,6 +18,8 @@ type Project = {
   /** Short factual lines shown in the dialog. */
   details: string[]
   links: ProjectLink[]
+  /** Colour accent for the card. */
+  accent: string
   wide?: boolean
 }
 
@@ -34,6 +36,7 @@ const FIGMA = '/icons/ai/figma.svg'
 const PROJECTS: Project[] = [
   {
     id: 'trakmama',
+    accent: '#ec4899',
     title: 'Trakmama',
     desc: 'Finished. A mobile-friendly web app for expectant mothers and new parents to track health, get reminders and book appointments.',
     logos: [VERCEL, TAILWIND],
@@ -52,6 +55,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: 'omnispark',
+    accent: '#2563eb',
     title: 'OmniSpark Media',
     desc: 'In progress. The website for my own web development and digital marketing business.',
     logos: [VERCEL, TAILWIND],
@@ -64,6 +68,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: 'weather',
+    accent: '#0ea5e9',
     title: 'Weather App',
     desc: 'In progress. A simple weather app with a Celsius and Fahrenheit toggle.',
     logos: [GITHUB, VERCEL],
@@ -171,6 +176,7 @@ function ProjectDetails({ p }: { p: Project }) {
         background: '#ffffff',
         color: '#0f1b2d',
         borderRadius: 20,
+        borderTop: `6px solid ${p.accent}`,
         padding: '28px 28px 24px',
         maxWidth: 560,
         width: '100%',
@@ -219,7 +225,7 @@ export default function ProjectsGrid() {
         <h1 className="pgrid__title" id="projects-title">
           Things I&apos;ve built.
         </h1>
-               <p className="pgrid__lede">
+        <p className="pgrid__lede">
           One finished project, two in progress, and the tools I work with. Open a card to see more.
         </p>
       </header>
@@ -238,6 +244,10 @@ export default function ProjectsGrid() {
               data-id={p.id}
               onClick={(e) => show(p, e.currentTarget)}
               aria-haspopup="dialog"
+              style={{
+                background: `linear-gradient(135deg, ${p.accent}26 0%, transparent 70%)`,
+                borderTop: `4px solid ${p.accent}`,
+              }}
             >
               <span className="bento__head">
                 <Logos logos={p.logos} />
@@ -248,7 +258,14 @@ export default function ProjectsGrid() {
             </button>
           ))}
 
-          <div className="bento__card" data-id="tools">
+          <div
+            className="bento__card"
+            data-id="tools"
+            style={{
+              background: 'linear-gradient(135deg, #f9731626 0%, transparent 70%)',
+              borderTop: '4px solid #f97316',
+            }}
+          >
             <span className="bento__head">
               <Logos logos={TOOLS_LOGOS} />
               <span className="bento__title">Tools I use</span>
