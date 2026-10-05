@@ -54,7 +54,7 @@ export const profile: Profile = {
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Less admin, more focus.', line2: 'Websites that bring leads.' },
+  displayName: { line1: 'Less admin.', line2: 'Better websites.' },
   hero: {
     body: 'I build fast, mobile-friendly websites and offer virtual assistant support for busy founders and small teams.',
     portraitSrc: '/cynthia.png',
