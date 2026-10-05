@@ -3,15 +3,13 @@ import { profile } from '@/data/profile'
 /**
  * Contact submission.
  *
- * Out of the box there is no backend: submitLead() opens the visitor's mail
- * client with a message addressed to profile.email (src/data/profile.ts).
+ * With VITE_CONTACT_ENDPOINT set (a Formspree address), submitLead() sends the
+ * message there. With it unset, it opens the visitor's mail client with a
+ * message addressed to profile.email (src/data/profile.ts).
  *
- * To wire a real backend (Formspree, a serverless function, a webhook...):
- *   1. Set VITE_CONTACT_ENDPOINT in .env.production to the URL that accepts
- *      a JSON POST of the Lead type below.
- *   2. Have it answer 2xx on success, or a non-2xx with { "error": "..." }
- *      and that sentence is shown to the visitor as-is.
- * With the variable unset the mail client path below is used instead.
+ * The endpoint must accept a JSON POST of the Lead type below, and answer 2xx
+ * on success, or a non-2xx with { "error": "..." } (that sentence is shown to
+ * the visitor as-is).
  */
 
 export const ENDPOINT: string = import.meta.env.VITE_CONTACT_ENDPOINT ?? ''
@@ -64,7 +62,7 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
   if (ENDPOINT) {
     const res = await fetch(ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(lead),
     })
     if (!res.ok) {
