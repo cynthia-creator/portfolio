@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SealCheck, CaretRight, Play, Stack, Coffee } from '@/components/slab'
+import { SealCheck, FolderOpen, Stack, Medal, Quotes } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
 
@@ -10,8 +10,8 @@ import QuickMenu from './QuickMenu'
  *                (theme + accessibility) - the rail's identity block, laid flat
  *   HomeStats    three proof facts (profile.stats), each named by a glyph so
  *                it reads at a glance
- *   HomeExplore  one shelf card per rail view in a snap row, then the first
- *                testimonial as a video stage
+ *   HomeExplore  one shelf card per page in a snap row. These match the cards
+ *                in HomeBento, so phone and desktop tell the same story.
  */
 
 export function HomeProfile() {
@@ -47,11 +47,47 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'PLACEHOLDER - projects headline', desc: 'Tell me what to put here.', img: '/placeholders/project-1.jpg' },
-  { n: '02', label: 'Services', to: '/services', title: 'PLACEHOLDER - services headline', desc: 'Tell me what to put here.', Icon: Stack },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'PLACEHOLDER - your flagship', desc: 'Tell me what to put here.', Icon: Coffee, accent: true },
-  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'PLACEHOLDER - testimonials headline', desc: 'Tell me what to put here.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'PLACEHOLDER - one line about you.', img: profile.avatarSrc },
+  {
+    n: '01',
+    label: 'Projects',
+    to: '/projects',
+    title: 'Things I have built.',
+    desc: 'Trakmama, OmniSpark Media and a weather app.',
+    Icon: FolderOpen,
+  },
+  {
+    n: '02',
+    label: 'Services',
+    to: '/services',
+    title: 'How I can help.',
+    desc: 'Websites, admin support, automations and AI data annotation.',
+    Icon: Stack,
+  },
+  {
+    n: '03',
+    label: 'Learning',
+    to: '/about',
+    title: 'Always learning.',
+    desc: 'Google Digital Marketing and E-commerce on Coursera.',
+    Icon: Medal,
+  },
+  {
+    n: '04',
+    label: 'About',
+    to: '/about',
+    title: `Hi, I'm ${profile.firstName}.`,
+    desc: 'A remote web developer and entry-level virtual assistant.',
+    img: profile.avatarSrc,
+  },
+  {
+    n: '05',
+    label: 'Contact',
+    to: '/contact',
+    title: "Let's talk.",
+    desc: 'Have a project or task in mind? Get in touch.',
+    Icon: Quotes,
+    accent: true,
+  },
 ] as const
 
 export function HomeExplore() {
@@ -62,7 +98,7 @@ export function HomeExplore() {
       </div>
       <ul className="htiles" role="list">
         {TILES.map((t) => (
-          <li key={t.to}>
+          <li key={t.n}>
             <Link to={t.to} className={`htile${'accent' in t && t.accent ? ' htile--accent' : ''}`}>
               {'img' in t ? (
                 <span className="htile__media"><img className="htile__img" src={t.img} alt="" loading="lazy" /></span>
@@ -78,27 +114,6 @@ export function HomeExplore() {
           </li>
         ))}
       </ul>
-
-      {/* A header that links carries its chevron on the title itself. */}
-      <div className="hsec">
-        <h2 className="hsec__title">
-          <Link to="/testimonials" className="hsec__link">
-            What clients say
-            <CaretRight size={16} weight="bold" aria-hidden="true" />
-          </Link>
-        </h2>
-      </div>
-      <Link to="/testimonials" className="hproof" aria-label="Client testimonial. PLACEHOLDER - a one-line teaser for your best testimonial.">
-        <span className="hproof__stage">
-          <img src="/placeholders/testimonial-1.jpg" alt="" loading="lazy" />
-          <span className="hproof__play" aria-hidden="true"><Play size={20} weight="fill" /></span>
-          <span className="hproof__dur" aria-hidden="true">0:00</span>
-        </span>
-        <span className="hproof__copy">
-          <span className="hproof__title">PLACEHOLDER - tell me what to put here: a one-line teaser for your best testimonial.</span>
-          <span className="hproof__meta">PLACEHOLDER - client role</span>
-        </span>
-      </Link>
     </>
   )
 }
